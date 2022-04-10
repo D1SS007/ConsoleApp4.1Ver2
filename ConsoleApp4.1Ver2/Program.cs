@@ -22,7 +22,7 @@ namespace ConsoleApp4._1Ver2
                         break;
 
                     case 2:
-                        ShowAllFiles(ref arrayNames, ref arrayPositions);
+                        ShowAllFiles(arrayNames, arrayPositions);
                         break;
 
                     case 3:
@@ -30,7 +30,7 @@ namespace ConsoleApp4._1Ver2
                         break;
 
                     case 4:
-                        SearchByLastName(ref arrayNames, ref arrayPositions);
+                        SearchByLastName(arrayNames, arrayPositions);
                         break;
 
                     case 5:
@@ -69,7 +69,7 @@ namespace ConsoleApp4._1Ver2
             array = tempArray;
         }
 
-        static void ShowAllFiles(ref string[] arrayNames, ref string[] arrayPositions)
+        static void ShowAllFiles( string[] arrayNames,  string[] arrayPositions)
         {
             for (int i = 0; i < arrayNames.Length; i++)
             {
@@ -80,7 +80,7 @@ namespace ConsoleApp4._1Ver2
 
         static void DeleteFile(ref string[] arrayName, ref string[] arrayPosition)
         {
-            ShowAllFiles(ref arrayName, ref arrayPosition);            
+            ShowAllFiles(arrayName, arrayPosition);            
 
             Console.WriteLine("Ведите номер досье которое хотите удалить");
 
@@ -107,7 +107,7 @@ namespace ConsoleApp4._1Ver2
             array = tempArray;
         }
 
-        static void SearchByLastName(ref string[] arrayName, ref string[] arrayPosition)
+        static void SearchByLastName(string[] arrayName, string[] arrayPosition)
         {
             bool fileIsFound = false;
 
