@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ConsoleApp4._1Ver2
 {
@@ -52,7 +48,9 @@ namespace ConsoleApp4._1Ver2
                         break;
 
                     case 5:
+                        
                         isWorking = false;
+                        
                         break;
 
                     default:
@@ -60,6 +58,7 @@ namespace ConsoleApp4._1Ver2
                         Console.WriteLine("Такой функции нет");
 
                         isWorking = false;
+                        
                         break;
                 }
             }
