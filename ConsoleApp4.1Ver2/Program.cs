@@ -47,14 +47,14 @@ namespace ConsoleApp4._1Ver2
 
         static void AddFile(ref string[] arrayName, ref string[] arrayPosition)
         {
-            SubAddFile(ref arrayName , "новое имя");
+            LogicOfAddingFile(ref arrayName , "новое имя");
 
-            SubAddFile (ref arrayPosition, "новую должность"); 
+            LogicOfAddingFile (ref arrayPosition, "новую должность"); 
 
             Console.WriteLine("Имя и должность успешно добавлены");
         }
 
-        static void SubAddFile(ref string [] array, string str )
+        static void LogicOfAddingFile(ref string [] array, string str )
         {
             string[] tempArray = new string[array.Length + 1];
 
@@ -86,12 +86,12 @@ namespace ConsoleApp4._1Ver2
 
             int fileToDelete = Convert.ToInt32(Console.ReadLine());  
             
-            SubDeleteFile(ref arrayName, fileToDelete - 1);           
+            LogicOfDeletingFile(ref arrayName, fileToDelete - 1);           
 
-            SubDeleteFile(ref arrayPosition, fileToDelete - 1);            
+            LogicOfDeletingFile(ref arrayPosition, fileToDelete - 1);            
         }
 
-        static void SubDeleteFile(ref string[] array, int fileToDelete)
+        static void LogicOfDeletingFile(ref string[] array, int fileToDelete)
         {
             string[] tempArray = new string[array.Length - 1];
 
