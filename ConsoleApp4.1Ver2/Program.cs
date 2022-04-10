@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp4._1Ver2
 {
@@ -18,47 +18,28 @@ namespace ConsoleApp4._1Ver2
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
                     case 1:
-
                         AddFile(ref arrayNames, ref arrayPositions);
-
-                        Console.WriteLine("Имя и должность успешно добавлены");
-
                         break;
 
                     case 2:
-
                         ShowAllFiles(ref arrayNames, ref arrayPositions);
-
                         break;
 
                     case 3:
-
-                        ShowAllFiles(ref arrayNames, ref arrayPositions);
-
-                        Console.WriteLine("Какое досье удалить?");
-
                         DeleteFile(ref arrayNames, ref arrayPositions);
-
                         break;
 
                     case 4:
-
                         SearchByLastName(ref arrayNames, ref arrayPositions);
-
                         break;
 
                     case 5:
-                        
                         isWorking = false;
-                        
                         break;
 
                     default:
-
                         Console.WriteLine("Такой функции нет");
-
                         isWorking = false;
-                        
                         break;
                 }
             }
@@ -66,70 +47,64 @@ namespace ConsoleApp4._1Ver2
 
         static void AddFile(ref string[] arrayName, ref string[] arrayPosition)
         {
-            string [] tempName =new string [arrayName.Length+1];
+            SubAddFile(ref arrayName , "новое имя");
 
-            for (int i = 0; i < arrayName.Length; i++)
+            SubAddFile (ref arrayPosition, "новую должность"); 
+
+            Console.WriteLine("Имя и должность успешно добавлены");
+        }
+
+        static void SubAddFile(ref string [] array, string str )
+        {
+            string[] tempArray = new string[array.Length + 1];
+
+            for (int i = 0; i < array.Length; i++)
             {
-                tempName [i] = arrayName [i];
+                tempArray[i] = array[i];
             }
-            Console.WriteLine("Введите новое имя в досье");
+            Console.WriteLine($"Введите {str} в досье");
 
-            tempName[tempName.Length - 1] = Convert.ToString(Console.ReadLine());
+            tempArray[tempArray.Length - 1] = Convert.ToString(Console.ReadLine());
 
-            arrayName = tempName;
-
-            string[] tempPosition = new string[arrayPosition.Length + 1];
-
-            for(int i = 0; i < arrayPosition.Length; i++)
-            {
-                tempPosition [i] = arrayPosition [i];
-            }
-            Console.WriteLine("Введите новую должность в досье");
-
-            tempPosition[tempPosition.Length - 1] = Convert.ToString(Console.ReadLine());
-
-            arrayPosition = tempPosition;
+            array = tempArray;
         }
 
         static void ShowAllFiles(ref string[] arrayNames, ref string[] arrayPositions)
         {
             for (int i = 0; i < arrayNames.Length; i++)
             {
-                Console.WriteLine($"\n{(i + 1)} - {arrayNames[i]} - {arrayPositions[i]}\n");
+                Console.WriteLine($"\n{(i + 1)} - {arrayNames[i]} - {arrayPositions[i]}");
             }
+            Console.WriteLine();
         }
 
         static void DeleteFile(ref string[] arrayName, ref string[] arrayPosition)
         {
+            ShowAllFiles(ref arrayName, ref arrayPosition);            
+
             Console.WriteLine("Ведите номер досье которое хотите удалить");
 
-            int fileToDelete = Convert.ToInt32(Console.ReadLine());            
+            int fileToDelete = Convert.ToInt32(Console.ReadLine());  
+            
+            SubDeleteFile(ref arrayName, fileToDelete - 1);           
 
-            string[] tempName = new string[arrayName.Length - 1];
+            SubDeleteFile(ref arrayPosition, fileToDelete - 1);            
+        }
 
-            for (int i = 0; i < fileToDelete; i++)
-            {
-                tempName[i] = arrayName[i];
-            }
-
-            for (int i = fileToDelete + 1; i < arrayName.Length; i++)
-            {
-                tempName [i - 1] = arrayName [i];
-            }
-            arrayName = tempName;
-
-            string[] tempPosition = new string[arrayPosition.Length - 1];
+        static void SubDeleteFile(ref string[] array, int fileToDelete)
+        {
+            string[] tempArray = new string[array.Length - 1];
 
             for (int i = 0; i < fileToDelete; i++)
             {
-                tempPosition[i] = arrayPosition[i];
+                tempArray[i] = array[i];
             }
 
-            for(int i = fileToDelete + 1; i < arrayPosition.Length; i++)
+            for (int i = fileToDelete + 1; i < array.Length; i++)
             {
-                tempPosition[i - 1] = arrayPosition[i];
+                tempArray[i - 1] = array[i];
             }
-            arrayPosition = tempPosition;
+            array = tempArray;
         }
 
         static void SearchByLastName(ref string[] arrayName, ref string[] arrayPosition)
@@ -138,7 +113,7 @@ namespace ConsoleApp4._1Ver2
 
             Console.WriteLine("Введите фамилию");
 
-            string searchName = Convert.ToString(Console.ReadLine());            
+            string searchName = Console.ReadLine();            
 
             for (int i = 0; i < arrayName.GetLength(0); i++)
             {
