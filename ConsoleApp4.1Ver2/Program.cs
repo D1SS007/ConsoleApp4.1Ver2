@@ -95,7 +95,7 @@ namespace ConsoleApp4._1Ver2
         {
             for (int i = 0; i < arrayNames.Length; i++)
             {
-                Console.WriteLine($"\n{(i + 1)} - {arrayNames[i]} {arrayPositions[i]}\n");
+                Console.WriteLine($"\n{(i + 1)} - {arrayNames[i]} - {arrayPositions[i]}\n");
             }
         }
 
@@ -144,7 +144,7 @@ namespace ConsoleApp4._1Ver2
             {
                 if (searchName.ToLower() == arrayName[i].ToLower())
                 {
-                    Console.WriteLine($"\n{(i + 1)} - {arrayName[i]} {arrayPosition[i]}\n"); 
+                    Console.WriteLine($"\n{(i + 1)} - {arrayName[i]} - {arrayPosition[i]}\n"); 
 
                     fileIsFound = true;
                 }
